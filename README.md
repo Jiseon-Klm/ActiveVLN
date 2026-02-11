@@ -1,7 +1,7 @@
 
 
 <div align="center">
-  <h1 style="font-size: 32px; font-weight: bold;"> ActiveVLN: Towards Active Exploration via Multi-Turn RL in Vision-and-Language Navigation</h1>
+  <h1 style="font-size: 32px; font-weight: bold;"> [ICRA 2026] ActiveVLN: Towards Active Exploration via Multi-Turn RL in Vision-and-Language Navigation</h1>
 
   <br>
 
