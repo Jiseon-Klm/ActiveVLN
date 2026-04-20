@@ -52,3 +52,4 @@ python run_infer_socialact_by_activevln.py --mission Nonverbal_001
 ```
 python run_infer_socialact_by_activevln.py (--mission ###)
 ```
+<img width="1081" height="1640" alt="image" src="https://github.com/user-attachments/assets/c8e49dcb-3bd8-429c-94a1-85d6fec1ddb4" />
