@@ -53,3 +53,8 @@ python run_infer_socialact_by_activevln.py --mission Nonverbal_001
 python run_infer_socialact_by_activevln.py (--mission ###)
 ```
 <img width="1081" height="1640" alt="image" src="https://github.com/user-attachments/assets/c8e49dcb-3bd8-429c-94a1-85d6fec1ddb4" />
+
+- 특이점: ActiveVLN은 로컬 다이렉트 추론이 아닌 서버를 띄워서하는 api 형태의 추론으로 구성됨 그 이유는:
+  + **핵심은 KV cache 재사용** — 로컬 model.generate()는 매 턴 대화 히스토리 전체를 다시 어텐션 계산 (O(N²)), vllm은 --enable-prefix-caching으로 공통 앞부분 어텐션 결과를 저장·재사용해서 새 토큰만 처리 (O(N))
+  + **보조 가속은 vllm 엔진 최적화** — PagedAttention(메모리 파편화 제거), CUDA graphs(커널 런치 오버헤드 제거), FlashAttention 커스텀 커널이 더해져 순수 속도 자체도 빠름
+  + **컨테이너 분리 자체는 속도와 무관 **— 같은 GPU 쓰는 한 프로세스만 나뉜 것이고, 6배 차이는 전적으로 "raw PyTorch generate() vs 프로덕션 서빙 엔진 vllm"의 차이
