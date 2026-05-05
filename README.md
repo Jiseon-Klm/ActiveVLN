@@ -31,9 +31,9 @@ docker run --rm --gpus all \
         --trust-remote-code \
         --limit-mm-per-prompt '{"image": 200, "video": 0}' \
         --mm_processor_kwargs '{"max_pixels": 80000}' \
-        --max-model-len 32768 \
+        --max-model-len 40960 \
         --enable-prefix-caching \
-        --gpu-memory-utilization 0.5 \
+        --gpu-memory-utilization 0.8 \
         --port 8003
 
 
